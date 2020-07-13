@@ -1,11 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to my SPA (Single Page Application) with Javascript frontend, and Raild API backend.
 
-Things you may want to cover:
+Application Overview:
 
-* Ruby version
+* Ruby version 2.6.1
 
 * System dependencies
 
