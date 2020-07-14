@@ -8,6 +8,14 @@ class Games {
 
     fetchAndLoadGames() {
         this.adapter.getGames()
-        .then(games => {console.log(games)})
+        .then(games => {games.forEach(game => this.games.push(new Game(game)))
+        })
+        .then(() => {
+            this.renderGames()
+        })
+    }
+
+    renderGames() {
+        this.games.map(game => game.renderBookElement())
     }
 }
