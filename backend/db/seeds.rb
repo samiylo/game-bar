@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# Previous sessions were saved in to DB. SO I add a destroy method to reset it every time.
+Game.destroy_all
+Review.destroy_all 
+
+
 # Create Game Seeds
 g1 = Game.create(title: "Minecraft", console: "All Consoles", image: "https://cdn.vox-cdn.com/thumbor/5dsDXMRKEkkO33LydtdgP4-xSBo=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/15957232/0fe20042_0bb8_4781_82f4_7130f928b021.jpg")
 g2 = Game.create(title: "Grant Theft Auto", console: "PC", image: "https://vignette.wikia.nocookie.net/gtawiki/images/7/76/CoverArt-GTAV.png/revision/latest?cb=20130826184215")
