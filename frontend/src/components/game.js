@@ -55,7 +55,10 @@ class Game {
     }
 
     newReviewForm(e) {
+        e.preventDefault();
 
+        const newReviewForm = document.getElementById('new-review-form')
+        const submitButton = document.createElement("button")
     }
 
     // Creates the current Review
