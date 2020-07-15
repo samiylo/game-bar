@@ -16,8 +16,10 @@ class Games {
     }
 
     createGame(e) {
+        console.log(this)
         e.preventDefault();
         const titleValue = this.newGameTitle.value
+        console.log(titleValue)
         const consoleValue = this.newGameConsole.value
         const imageValue = this.newGameImage.value
 
@@ -35,7 +37,6 @@ class Games {
     fetchAndLoadGames() {
         this.adapter.getGames()
         .then(games => {games.forEach(game => this.games.push(new Game(game)))
-            console.log(this.games)
         })
         .then(() => {
             this.renderGames()
@@ -43,7 +44,6 @@ class Games {
     }
 
     renderGames() {
-        console.log(this.games)
         this.games.map(game => game.renderGameElement())
     }
 }

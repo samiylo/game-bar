@@ -59,6 +59,50 @@ class Game {
 
         const newReviewForm = document.getElementById('new-review-form')
         const submitButton = document.createElement("button")
+        submitButton.innerHTML = "Add"
+        submitButton.id = "review-submit"
+        submitButton.type = "submit"
+        const buttonDiv = document.getElementById("buttons")
+        buttonDiv.appendChild(submitButton)
+        submitButton.addEventListener('click', this.submitReviewInputs.bind(this))
+    }
+
+    submitReviewInputs(e) {
+        e.preventDefault();
+
+        const buttonDiv = document.getElementById("buttons")
+        const submitButton = document.getElementById("review-submit")
+        const form = document.getElementById('new-review-form')
+
+        const newReviewBody = document.getElementById('new-review-body')
+        const reviewBox = document.getElementById(`review-${this.id}`)
+        const pDiv = document.createElement('p')
+        reviewBox.appendChild(pDiv)
+
+        const reviewAddition = {
+            book_id: this.id ,
+            content: newReviewBody.value,
+        }
+
+        fetch('http://localhost:3000/reviews', {
+            method:'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body:JSON.stringify(reviewAddition)
+        })
+        .then(res => res.json())
+        .then(review => {
+        // console.log(review)
+        // console.log(review.body)
+
+        pDiv.innerHTML = review.content
+        newReviewBody.value = ' '
+        buttonDiv.removeChild(submitButton)
+        closeForm()
+        })
+
     }
 
     // Creates the current Review
@@ -89,7 +133,7 @@ class Game {
     }
 
     reviewBody(review){
-        console.log(review)
+        // console.log(review)
         return `<p>${review.content}</p>`
     }
 
