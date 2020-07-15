@@ -20,5 +20,38 @@ class Game {
         deleteButton.innerHTML = "Delete Game"
         gameBlock.appendChild(deleteButton)
 
+        deleteButton.addEventListener('click', () => {
+            gameBlock.remove()
+            this.deleteGame(`${this.id}`)
+        })
+
+        const reviewButton = document.createElement("BUTTON")
+        reviewButton.setAttribute("id", `review-button-${this.id}`)
+        reviewButton.setAttribute("onclick", "openForm()")
+        reviewButton.innerHTML = "Add Game Review"
+        gameBlock.appendChild(reviewButton)
+
+        reviewButton.addEventListener('click', this.newReviewForm.bind(this))
+
+        const image = document.createElement('img')
+        image.setAttribute("class", "image")
+        image.src = this.image
+        gameBlock.appendChild(image)
+
+    }
+
+    newReviewForm(e) {
+
+    }
+
+    deleteGame(id){
+        console.log(id)
+        return fetch('http://localhost:3000/games' + '/' + id, {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+        })
     }
 }
