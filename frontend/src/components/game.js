@@ -15,7 +15,10 @@ class Game {
         gameBlock.className = 'game-container'
         gamesContainer.appendChild(gameBlock)
 
-        
+        const deleteButton = document.createElement('BUTTON')
+        deleteButton.setAttribute("id", `delete-button-${this.id}`)
+        deleteButton.innerHTML = "Delete Game"
+        gameBlock.appendChild(deleteButton)
 
     }
 }
