@@ -8,6 +8,14 @@ class Game {
     }
 
     renderGameElement() {
+        const gamesContainer = document.getElementById('games-container')
+        // console.log(gamesContainer)
+
+        const gameBlock = document.createElement('div')
+        gameBlock.className = 'game-container'
+        gamesContainer.appendChild(gameBlock)
+
+        
 
     }
 }

@@ -2,11 +2,11 @@ class Games {
     constructor() {
         this.games = []
         this.adapter = new GamesAdapter()
-        // this.bindEventListeners()
+        this.bindEventListeners()
         this.fetchAndLoadGames()
     }
 
-    initBindingsAndEventListeners() {
+    bindEventListeners() {
         this.newGameForm = document.getElementById('new-game-form')
         this.newGameTitle = document.getElementById('new-game-title')
         this.newGameConsole = document.getElementById('new-game-console')
@@ -44,9 +44,6 @@ class Games {
 
     renderGames() {
         console.log(this.games)
-        // this.games.map(game => game.renderGameElement())
-
-        const gamesContainer = document.getElementById('games-container')
-        gamesContainer
+        this.games.map(game => game.renderGameElement())
     }
 }
