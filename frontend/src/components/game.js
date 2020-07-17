@@ -38,7 +38,7 @@ class Game {
         image.src = this.image
         gameBlock.appendChild(image)
 
-        // Creates the Game Inso Element Container
+        // Creates the Game Info Element Container
         const gameInfo = document.createElement('div')
         gameInfo.className  = 'game-info'
         gameBlock.appendChild(gameInfo)
