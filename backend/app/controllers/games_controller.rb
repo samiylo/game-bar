@@ -10,19 +10,19 @@ class GamesController < ApplicationController
     def show
         @game = Game.find(params[:id])
 
-        render json: @game, status: 200
+        render json: @game, status: :ok
     end
 
     def update
         @game = Game.find(params[:id])
         @game.update(game_params)
-        render json: @game, status: 200
+        render json: @game, status: :ok
     end
 
     def create
         @game = Game.new(game_params)
 
-        render json: @game, status: 200
+        render json: @game, status: :ok
     end
 
     def destroy
